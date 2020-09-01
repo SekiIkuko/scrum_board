@@ -1,5 +1,29 @@
 <template>
-  <div>
-    ストーリー付箋
-  </div>
+  <v-card
+    class="mx-auto"
+    max-width="344"
+    outlined
+  >
+    <v-list-item three-line>
+      <v-list-item-content>
+        <v-text-field
+            label="id"
+            placeholder="Placeholder"
+        ></v-text-field>
+
+        <v-text-field
+            label="title"
+            placeholder="Placeholder"
+        ></v-text-field>
+        <v-text-field
+            label="point"
+            placeholder="Placeholder"
+        ></v-text-field>
+        <v-select
+          :items="items"
+          label="Standard"
+        ></v-select>
+      </v-list-item-content>
+    </v-list-item>
+  </v-card>
 </template>

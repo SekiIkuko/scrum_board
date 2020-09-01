@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    あああ
     <story-sticky-note />
   </div>
 </template>
