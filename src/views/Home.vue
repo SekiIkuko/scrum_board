@@ -1,6 +1,9 @@
 <template>
   <div class="home">
-    <story-sticky-note />
+    <story-sticky-note
+      v-for="story in stories"
+      :key="story.id"
+     />
   </div>
 </template>
 
@@ -11,6 +14,11 @@ export default {
   name: 'Home',
   components: {
     StoryStickyNote
+  },
+  data() {
+    return {
+      stories: [{id: 1, title: "hoge", point: 3}]
+    }
   }
 }
 </script>
