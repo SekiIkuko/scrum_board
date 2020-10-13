@@ -11,9 +11,46 @@
           :tubu="story"
         />
       </v-col>
+      <v-btn
+       @click="addTaskStickyNote(story.id)"
+     >
+     追加
+     </v-btn>
       <v-col>
-        <task-sticky-note
-        />
+        todo
+        <v-col>
+          <v-row
+            v-for="task in story.tasks"
+            :key="task.id">
+            <task-sticky-note
+              :task="task"
+            />
+          </v-row>
+        </v-col>
+      </v-col>
+      <v-col>
+        doing
+        <v-col>
+          <v-row
+            v-for="task in story.tasks"
+            :key="task.id">
+            <task-sticky-note
+              :task="task"
+            />
+          </v-row>
+        </v-col>
+      </v-col>
+      <v-col>
+        done
+        <v-col>
+          <v-row
+            v-for="task in story.tasks"
+            :key="task.id">
+            <task-sticky-note
+              :task="task"
+            />
+          </v-row>
+        </v-col>
       </v-col>
     </v-row>
      <v-btn
@@ -36,12 +73,18 @@ export default {
   },
   data() {
     return {
-      stories: [{id: 1, title: "hoge", point: 3, feel: '🐷'},{id: 2, title: "hoge", point: 3, feel: '🐸'}]
+      stories: [{id: 1, title: "hoge", point: 3, feel: '🐷', tasks: []},{id: 2, title: "hoge", point: 3, feel: '🐸', tasks: []}]
     }
   },
   methods: {
     addStoryStickyNote() {
-      this.stories.push({id: null, title: null, point: null, feel: null})
+      this.stories.push({id: null, title: null, point: null, feel: null, tasks: []})
+    },
+    addTaskStickyNote(target) {
+      let task_list = this.stories.find((list) => {
+        return (list.id == target)
+      })
+      task_list.tasks.push({content: null, time: null})
     }
   }
 }
